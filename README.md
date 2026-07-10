@@ -438,8 +438,8 @@ npm run dev
 
 Backend Developer
 
-GitHub: https://github.com/your-github
+GitHub: https://github.com/Raktim-b
 
-LinkedIn: https://linkedin.com/in/your-linkedin
+
 
 ---

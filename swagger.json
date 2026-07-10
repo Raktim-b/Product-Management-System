@@ -1,0 +1,59 @@
+{
+  "swaggerDefinition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Product Management API",
+      "version": "1.0.0",
+      "description": "RESTful Product Management API built with Node.js, Express.js, MongoDB, and documented using Swagger.",
+      "contact": {
+        "name": "Raktim Bhattacharya"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:4025"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Authentication",
+        "description": "Authentication APIs"
+      },
+      {
+        "name": "User",
+        "description": "User Management APIs"
+      },
+      {
+        "name": "Category",
+        "description": "Category Management APIs"
+      },
+      {
+        "name": "Subcategory",
+        "description": "Subcategory Management APIs"
+      },
+      {
+        "name": "Product",
+        "description": "Product Management APIs"
+      },
+      {
+        "name": "Dashboard",
+        "description": "Dashboard APIs"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "BearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "BearerAuth": []
+      }
+    ]
+  },
+  "apis": ["./app.js", "./app/routes/*.js"]
+}

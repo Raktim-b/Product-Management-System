@@ -1,0 +1,1053 @@
+{
+  "info": {
+    "_postman_id": "bf21538c-906f-4b54-becb-01faaf5670f0",
+    "name": "ProductManagement",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52310874",
+    "_collection_link": "https://go.postman.co/collection/52310874-bf21538c-906f-4b54-becb-01faaf5670f0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "http://localhost:4025/auth/create/role",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"role\":\"user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/auth/create/role",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "auth",
+                "create",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/auth/create/admin",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:4025/auth/create/admin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "auth",
+                "create",
+                "admin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/auth/login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/auth/refresh-token",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "refresh-token",
+                "value": "{{supabase_service_role_api_key_0s6w}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/auth/refresh-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "http://localhost:4025/user/create/admin",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_01bx}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Aarav\",\r\n  \"email\": \"aarav123@yopmail.com\",\r\n  \"password\": \"Aarav@123\",\r\n  \"phone\": \"9876543210\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/user/create/admin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "create",
+                "admin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/user/create/user",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_130j}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Rohan\",\r\n  \"email\": \"rohan.dev@yopmail.com\",\r\n  \"password\": \"Rohan@123\",\r\n  \"phone\": \"9123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/user/create/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "create",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/user/get/user",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_1d84}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4025/user/get/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "get",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/user/update/6a50a2eba2119f8984a7d823",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_171q}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n      \"phone\": 9123456787\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/user/update/6a50a2eba2119f8984a7d823",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "update",
+                "6a50a2eba2119f8984a7d823"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/user/toggle/6a50a2eba2119f8984a7d823",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_0wo7}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/user/toggle/6a50a2eba2119f8984a7d823",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "toggle",
+                "6a50a2eba2119f8984a7d823"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/user/delete/6a50a2eba2119f8984a7d823",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0wo7}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4025/user/delete/6a50a2eba2119f8984a7d823",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "user",
+                "delete",
+                "6a50a2eba2119f8984a7d823"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "http://localhost:4025/category/create",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0tbw}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Fashion\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/category/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "category",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/category/get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_0r56}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Fashion\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/category/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "category",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/category/get/6a50ba490eb173184e8d4649",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0tbw}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Fashion\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/category/get/6a50ba490eb173184e8d4649",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "category",
+                "get",
+                "6a50ba490eb173184e8d4649"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/category/update/6a50ba490eb173184e8d4649",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_0v8n}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Education\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/category/update/6a50ba490eb173184e8d4649",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "category",
+                "update",
+                "6a50ba490eb173184e8d4649"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/category/delete/6a50ba490eb173184e8d4649",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0v8n}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Education\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/category/delete/6a50ba490eb173184e8d4649",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "category",
+                "delete",
+                "6a50ba490eb173184e8d4649"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SubCategory",
+      "item": [
+        {
+          "name": "http://localhost:4025/subCategory/create",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0r56}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryId\": \"6a50ba2e0eb173184e8d4648\",\r\n    \"subCategoryName\": \"Jean\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/subCategory/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "subCategory",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/subCategory/get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0c0d}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Fashion\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/subCategory/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "subCategory",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/subCategory/get/6a50bfea5c95f88b4ed7a9a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0r56}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryName\": \"Fashion\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/subCategory/get/6a50bfea5c95f88b4ed7a9a5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "subCategory",
+                "get",
+                "6a50bfea5c95f88b4ed7a9a5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/subCategory/update/6a50c07c5c95f88b4ed7a9a9",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_0c0d}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"subCategoryName\": \"Jeans\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/subCategory/update/6a50c07c5c95f88b4ed7a9a9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "subCategory",
+                "update",
+                "6a50c07c5c95f88b4ed7a9a9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/subCategory/delete/6a50c07c5c95f88b4ed7a9a9",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_0c0d}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"subCategoryName\": \"Jeans\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/subCategory/delete/6a50c07c5c95f88b4ed7a9a9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "subCategory",
+                "delete",
+                "6a50c07c5c95f88b4ed7a9a9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "http://localhost:4025/product/create",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_1dxy}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productName\": \"OnePlus 13\",\r\n  \"categoryId\": \"6a50ba220eb173184e8d4647\",\r\n  \"subCategoryId\": \"6a50bff45c95f88b4ed7a9a6\",\r\n  \"price\": 69999,\r\n  \"description\": \"Flagship Android smartphone with fast charging.\",\r\n  \"stock\": 30\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/product/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "product",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/product/get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_1dxy}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productName\": \"OnePlus 13\",\r\n  \"categoryId\": \"6a50ba220eb173184e8d4647\",\r\n  \"subCategoryId\": \"6a50bff45c95f88b4ed7a9a6\",\r\n  \"price\": 69999,\r\n  \"description\": \"Flagship Android smartphone with fast charging.\",\r\n  \"stock\": 30\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/product/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "product",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/product/get/6a50c389c6c5b77593163d39",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_1dxy}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productName\": \"OnePlus 13\",\r\n  \"categoryId\": \"6a50ba220eb173184e8d4647\",\r\n  \"subCategoryId\": \"6a50bff45c95f88b4ed7a9a6\",\r\n  \"price\": 69999,\r\n  \"description\": \"Flagship Android smartphone with fast charging.\",\r\n  \"stock\": 30\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/product/get/6a50c389c6c5b77593163d39",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "product",
+                "get",
+                "6a50c389c6c5b77593163d39"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/product/update/6a50c389c6c5b77593163d39",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{json_web_token_01e7}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n \r\n  \r\n  \"stock\": 24\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4025/product/update/6a50c389c6c5b77593163d39",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "product",
+                "update",
+                "6a50c389c6c5b77593163d39"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "http://localhost:4025/product/delete/6a50c4b9c6c5b77593163d43",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_01e7}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n \r\n  \r\n  \"stock\": 24\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/product/delete/6a50c4b9c6c5b77593163d43",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "product",
+                "delete",
+                "6a50c4b9c6c5b77593163d43"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DashBoard",
+      "item": [
+        {
+          "name": "http://localhost:4025/dashboard/get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{supabase_service_role_api_key_18i6}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productName\": \"OnePlus 13\",\r\n  \"categoryId\": \"6a50ba220eb173184e8d4647\",\r\n  \"subCategoryId\": \"6a50bff45c95f88b4ed7a9a6\",\r\n  \"price\": 69999,\r\n  \"description\": \"Flagship Android smartphone with fast charging.\",\r\n  \"stock\": 30\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4025/dashboard/get",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4025",
+              "path": [
+                "dashboard",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "supabase_service_role_api_key_0s6w",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_01bx",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_130j",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_1d84",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_171q",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0wo7",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0wo7",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0tbw",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0tbw",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0v8n",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0v8n",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0r56",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0c0d",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0c0d",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0r56",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_1dxy",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_1dxy",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_01e7",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_01e7",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_18i6",
+      "secret": true
+    }
+  ]
+}

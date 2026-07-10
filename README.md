@@ -10,6 +10,13 @@
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger)
 
 ---
+#🛠 Tech Stack<
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,javascript,npm,git,github,vscode,postman&theme=light" />
+</p>
+
+---
 
 # 📌 Project Overview
 
